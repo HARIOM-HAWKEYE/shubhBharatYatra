@@ -43,7 +43,7 @@ const reviews = [
 
 export default function App() {
   return (
-    <div className="max-w-[90%] mx-auto h-auto min-h-[400px] bg-white flex flex-col items-start justify-center py-6 sm:py-10">
+    <div className="max-w-[80%] mx-auto h-auto min-h-[400px] bg-white flex flex-col items-start justify-center py-6 sm:py-10">
       <h1 className='text-left text-black text-3xl sm:text-4xl font-semibold relative'>
         Our Happy Customers
         <span className="block w-40 h-1 bg-black mt-3 mb-6 animate-pulse"></span>
