@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import serviceFrontPage from "../assets/image/Services/servicesFrontPage.avif";
-import goaImage from "../assets/image/Goa/DudhSagar.avif"
+import goaImage from "../assets/image/Goa/DudhSagar.avif";
 
 const BlogPage = () => {
   const initialBlogs = [
     {
       title: "Exploring the Enchanting Beauty of Goa: A Tropical Paradise",
       author: "Aditi Sharma",
-      date: "May 27, 2025",
+      date: "April 22, 2025",
       image: goaImage,
       description: "Discover why Goa is India's favorite beach destination with its stunning beaches, vibrant culture, and delicious cuisine.",
       fullContent: {
@@ -115,7 +115,7 @@ const BlogPage = () => {
           Recent Travel Stories
           <span className="block w-40 h-1 bg-black mt-2 animate-pulse"></span>
         </h1>
-        
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {blogs.map((blog, index) => (
             <div
@@ -167,125 +167,85 @@ const BlogPage = () => {
               </div>
             </div>
 
-            <div className="p-6 sm:p-8 md:p-10">
-              <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+            <div className="p-6 sm:p-8 md:p-10 space-y-8 text-gray-700">
+              <p className="text-lg text-gray-700 mb-4 leading-relaxed">
                 {selectedBlog.description}
               </p>
 
-              {/* Full Blog Content */}
-              <div className="space-y-8 text-gray-700">
-                <div>
-                  <h3 className="text-xl sm:text-2xl font-semibold mb-4 text-gray-800">Introduction</h3>
-                  <p className="text-gray-600 leading-relaxed">{selectedBlog.fullContent.introduction}</p>
-                </div>
+              <div>
+                <h3 className="text-xl sm:text-2xl font-semibold mb-4 text-gray-800">Introduction</h3>
+                <p className="text-gray-600 leading-relaxed">{selectedBlog.fullContent.introduction}</p>
+              </div>
 
-                <div>
-                  <h3 className="text-xl sm:text-2xl font-semibold mb-4 text-gray-800">{selectedBlog.fullContent.whyVisit.title}</h3>
-                  <ul className="space-y-3">
-                    {selectedBlog.fullContent.whyVisit.points.map((point, idx) => (
-                      <li key={idx} className="flex items-start">
-                        <span className="inline-block w-1.5 h-1.5 bg-gray-600 rounded-full mt-2 mr-2"></span>
-                        <span className="text-gray-600">{point}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div>
-                  <h3 className="text-xl sm:text-2xl font-semibold mb-4 text-gray-800">{selectedBlog.fullContent.topPlaces.title}</h3>
-                  {selectedBlog.fullContent.topPlaces.sections.map((section, idx) => (
-                    <div key={idx} className="mb-6">
-                      <h4 className="text-lg sm:text-xl font-semibold mb-3 text-gray-700">{section.name}</h4>
-                      <ul className="space-y-2">
-                        {section.places.map((place, placeIdx) => (
-                          <li key={placeIdx} className="flex items-start">
-                            <span className="inline-block w-1.5 h-1.5 bg-gray-600 rounded-full mt-2 mr-2"></span>
-                            <span className="text-gray-600">{place}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+              <div>
+                <h3 className="text-xl sm:text-2xl font-semibold mb-4 text-gray-800">{selectedBlog.fullContent.whyVisit.title}</h3>
+                <ul className="space-y-3">
+                  {selectedBlog.fullContent.whyVisit.points.map((point, idx) => (
+                    <li key={idx} className="flex items-start">
+                      <span className="inline-block w-1.5 h-1.5 bg-gray-600 rounded-full mt-2 mr-2"></span>
+                      <span>{point}</span>
+                    </li>
                   ))}
-                </div>
+                </ul>
+              </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  <div>
-                    <h3 className="text-xl sm:text-2xl font-semibold mb-4 text-gray-800">{selectedBlog.fullContent.mustTryExperiences.title}</h3>
-                    <ul className="space-y-3">
-                      {selectedBlog.fullContent.mustTryExperiences.experiences.map((experience, idx) => (
-                        <li key={idx} className="flex items-start">
-                          <span className="inline-block w-1.5 h-1.5 bg-gray-600 rounded-full mt-2 mr-2"></span>
-                          <span className="text-gray-600">{experience}</span>
-                        </li>
+              <div>
+                <h3 className="text-xl sm:text-2xl font-semibold mb-4 text-gray-800">{selectedBlog.fullContent.topPlaces.title}</h3>
+                {selectedBlog.fullContent.topPlaces.sections.map((section, idx) => (
+                  <div key={idx} className="mb-4">
+                    <h4 className="text-lg font-semibold text-gray-700 mb-2">{section.name}</h4>
+                    <ul className="list-disc ml-5 text-gray-600 space-y-1">
+                      {section.places.map((place, idy) => (
+                        <li key={idy}>{place}</li>
                       ))}
                     </ul>
                   </div>
+                ))}
+              </div>
 
-                  <div>
-                    <h3 className="text-xl sm:text-2xl font-semibold mb-4 text-gray-800">{selectedBlog.fullContent.goanCuisine.title}</h3>
-                    <ul className="space-y-3">
-                      {selectedBlog.fullContent.goanCuisine.dishes.map((dish, idx) => (
-                        <li key={idx} className="flex items-start">
-                          <span className="inline-block w-1.5 h-1.5 bg-gray-600 rounded-full mt-2 mr-2"></span>
-                          <span className="text-gray-600">{dish}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
+              <div>
+                <h3 className="text-xl sm:text-2xl font-semibold mb-4 text-gray-800">{selectedBlog.fullContent.mustTryExperiences.title}</h3>
+                <ul className="list-disc ml-5 space-y-1 text-gray-600">
+                  {selectedBlog.fullContent.mustTryExperiences.experiences.map((exp, idx) => (
+                    <li key={idx}>{exp}</li>
+                  ))}
+                </ul>
+              </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  <div>
-                    <h3 className="text-xl sm:text-2xl font-semibold mb-4 text-gray-800">{selectedBlog.fullContent.bestTimeToVisit.title}</h3>
-                    <ul className="space-y-3">
-                      {selectedBlog.fullContent.bestTimeToVisit.seasons.map((season, idx) => (
-                        <li key={idx} className="flex items-start">
-                          <span className="inline-block w-1.5 h-1.5 bg-gray-600 rounded-full mt-2 mr-2"></span>
-                          <span className="text-gray-600">{season}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+              <div>
+                <h3 className="text-xl sm:text-2xl font-semibold mb-4 text-gray-800">{selectedBlog.fullContent.goanCuisine.title}</h3>
+                <ul className="list-disc ml-5 space-y-1 text-gray-600">
+                  {selectedBlog.fullContent.goanCuisine.dishes.map((dish, idx) => (
+                    <li key={idx}>{dish}</li>
+                  ))}
+                </ul>
+              </div>
 
-                  <div>
-                    <h3 className="text-xl sm:text-2xl font-semibold mb-4 text-gray-800">{selectedBlog.fullContent.travelTips.title}</h3>
-                    <ul className="space-y-3">
-                      {selectedBlog.fullContent.travelTips.tips.map((tip, idx) => (
-                        <li key={idx} className="flex items-start">
-                          <span className="inline-block w-1.5 h-1.5 bg-gray-600 rounded-full mt-2 mr-2"></span>
-                          <span className="text-gray-600">{tip}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
+              <div>
+                <h3 className="text-xl sm:text-2xl font-semibold mb-4 text-gray-800">{selectedBlog.fullContent.bestTimeToVisit.title}</h3>
+                <ul className="list-disc ml-5 space-y-1 text-gray-600">
+                  {selectedBlog.fullContent.bestTimeToVisit.seasons.map((season, idx) => (
+                    <li key={idx}>{season}</li>
+                  ))}
+                </ul>
+              </div>
 
-                <div>
-                  <h3 className="text-xl sm:text-2xl font-semibold mb-4 text-gray-800">Conclusion</h3>
-                  <p className="text-gray-600 leading-relaxed">{selectedBlog.fullContent.conclusion}</p>
-                </div>
+              <div>
+                <h3 className="text-xl sm:text-2xl font-semibold mb-4 text-gray-800">{selectedBlog.fullContent.travelTips.title}</h3>
+                <ul className="list-disc ml-5 space-y-1 text-gray-600">
+                  {selectedBlog.fullContent.travelTips.tips.map((tip, idx) => (
+                    <li key={idx}>{tip}</li>
+                  ))}
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="text-xl sm:text-2xl font-semibold mb-4 text-gray-800">Conclusion</h3>
+                <p className="text-gray-600">{selectedBlog.fullContent.conclusion}</p>
               </div>
             </div>
           </div>
         )}
-
-        {/* Newsletter Section */}
-        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-8 sm:p-10 mt-14 md:mt-16 text-center">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-800">Join Our Travel Community</h2>
-          <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-            Get exclusive travel tips and destination guides right in your inbox.
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center max-w-md mx-auto">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="p-3 sm:py-3 sm:px-4 w-full bg-white border border-gray-300 rounded-full sm:rounded-r-none focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700 mb-3 sm:mb-0"
-            />
-            <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full sm:rounded-l-none transition duration-300 whitespace-nowrap">
-              Subscribe
-            </button>
-          </div>
-        </div>
       </div>
     </section>
   );

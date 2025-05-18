@@ -50,8 +50,8 @@ export function BestLocation() {
   ];
 
   return (
-    <section className="w-full px-8 py-2 max-w-7xl mx-auto">
-      <h2 className="text-4xl font-bold text-center mb-12">Our Top Destinations</h2>
+    <section className="w-full px-8  max-w-7xl mx-auto">
+     
       
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  gap-4">
         {locations.map((location, index) => (

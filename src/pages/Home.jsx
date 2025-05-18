@@ -24,13 +24,12 @@ const HomePage = () => {
       </video>
       <div className="absolute top-0 left-0 w-full h-full bg-black opacity-40 z-5"></div>
       <div id="main-quote" className="relative z-10 text-center text-white">
-        <h1 className="md:text-5xl lg:text-6xl font-bold">Extraordinary natural and <br /> cultural charm</h1>
-        <h6 className="md:text-xl lg:text-2xl mt-2">Exploring India is an unforgettable adventure</h6>
+        <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold">Extraordinary natural and <br /> cultural charm</h1>
+        <h6 className="text-md md:text-xl lg:text-2xl mt-2">Exploring India is an unforgettable adventure</h6>
       </div>
     </div>
     <Marquee></Marquee>
-    <Heading biggerHeading="Incredible India" smallerHeading="Best Location" >Extraordinary natural beauty,enjoy the rich culture,<br /> and experience the friendliness of the local people.</Heading>
-    <BestLocation></BestLocation>
+    
     {/* <CardDesign></CardDesign> */}
  
     <Heading biggerHeading="Top Destination" smallerHeading="Explore Our Packages">
@@ -38,6 +37,8 @@ const HomePage = () => {
     
 
     <CardSlider></CardSlider>
+    <Heading biggerHeading="Incredible India" smallerHeading="Best Location" >Extraordinary natural beauty,enjoy the rich culture,<br /> and experience the friendliness of the local people.</Heading>
+    <BestLocation></BestLocation>
     <Services></Services>
      <TravelBookingForm/>
 
