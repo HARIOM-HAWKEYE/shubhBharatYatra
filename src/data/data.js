@@ -12,7 +12,7 @@ import Shimla from "../assets/image/HimachalPradesh/shimla.avif";
 import Manali from "../assets/image/HimachalPradesh/manali.avif";
 import Spiti_Valley from "../assets/image/HimachalPradesh/spitiValley.avif";
 import Dalhousie from "../assets/image/HimachalPradesh/dalhousie.jpg";
-import Dharamshala from "../assets/image/HimachalPradesh/Dharamshala.jpg";
+import Dharamshala from "../assets/image/HimachalPradesh/dharamshala.jpg";
 import rajasthanFrontPage from "../assets/image/Rajasthan/rajasthanFrontPage.jpg";
 import Jodhpur from "../assets/image/Rajasthan/Jodhpur.avif";
 import Jaisalmer from "../assets/image/Rajasthan/Jaisalmer.avif";
