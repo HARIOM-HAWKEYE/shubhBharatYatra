@@ -27,7 +27,7 @@ import Srinagar from "../assets/image/Kashmir/Srinagar.avif";
 import Sonamarg from "../assets/image/Kashmir/Sonamrg.avif";
 import Gulmarg from "../assets/image/Kashmir/Gulmarg.avif";
 import Pahalgam from "../assets/image/Kashmir/Pahalgam.avif";
-import lehFrontPage from "../assets/image/Leh/lehFrontPage.jpg";
+import lehFrontPage from "../assets/image/Leh/LehFrontPage.jpg";
 import NubraValley from "../assets/image/Leh/NubraValley.avif";
 import PangongLake from "../assets/image/Leh/PangongLake.avif";
 import Leh from "../assets/image/Leh/Leh.avif";
