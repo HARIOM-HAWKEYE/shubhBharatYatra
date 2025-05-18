@@ -74,7 +74,7 @@ const TravelBookingForm = () => {
   };
 
   return (
-    <div className="flex flex-col lg:flex-row bg-gray-900 rounded-lg shadow-lg p-4 sm:p-6 md:p-8 gap-6 md:gap-8 lg:gap-10 w-full max-w-6xl mx-auto my-8 sm:my-10 md:my-12">
+    <div className="flex flex-col lg:flex-row bg-gray-900 rounded-lg shadow-lg p-4 sm:p-6 md:p-8 gap-6 md:gap-8 lg:gap-10 w-full max-w-[1080px] mx-auto my-8 sm:my-10 md:my-12">
       {/* Image Section */}
       <div
         className="flex-1 flex flex-col justify-end items-center text-center text-white p-6 sm:p-8 md:p-10 rounded-xl bg-cover bg-center min-h-[300px] lg:min-h-[500px] relative overflow-hidden"
