@@ -19,7 +19,7 @@ import Jaisalmer from "../assets/image/Rajasthan/Jaisalmer.avif";
 import goaFrontPage from "../assets/image/Goa/goaFrontPage.jpg";
 import BagaBeach from "../assets/image/Goa/BagaBeach.avif";
 import AguadaFort from "../assets/image/Goa/AguadaFort.avif";
-import Dudhsagar from "../assets/image/Goa/Dudhsagar.avif";
+import Dudhsagar from "../assets/image/Goa/DudhSagar.avif";
 import AnjunaBeach from "../assets/image/Goa/AnjunaBeach.avif";
 
 import kashmirFrontPage from "../assets/image/Kashmir/kashmirFrontPage.jpg";
