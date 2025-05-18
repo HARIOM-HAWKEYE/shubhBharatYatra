@@ -17,43 +17,42 @@ const UttrakhandPage = () => {
         </div>
       </header>
 
-      <section className="px-4 py-12">
-        <div className="max-w-[80%] mx-auto space-y-8">
-          <h2 className="text-3xl font-semibold">About Uttarakhand</h2>
-          <p className="text-lg text-gray-300">
-            Uttarakhand is a state in northern India, known for its picturesque hill stations,
-            temples, and scenic beauty. The state is home to the famous spiritual and adventure
-            tourism destinations, including Haridwar, Rishikesh, and the Char Dham Yatra.
-          </p>
-        </div>
-        <div className="max-w-[80%] mx-auto space-y-8 mt-10">
-          <h2 className="text-3xl  font-semibold">Uttarakhand Package</h2>
-          
-        </div>
+     <section className="py-12">
+  <div className="container mx-auto px-4 md:px-8 lg:px-12">
+    <div className="space-y-8">
+      <h2 className="text-3xl font-semibold">About Uttarakhand</h2>
+      <p className="text-lg text-gray-300">
+        Uttarakhand is a state in northern India...
+      </p>
+    </div>
 
-        <div className="max-w-[80%] mx-auto grid gap-2 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-          
-          {tourData[0].places.map((data, index) => (
-            <CardDesign
-              key={index}
-              state={tourData[0].state}
-              title={data.name}
-              description={data.description}
-              img={data.image}
-              rating={data.rating}
-              days={data.totalDays}
-              highlights={data.highlights}
-              inclusions={data.inclusions}
-              exclusions={data.exclusions}
-              itinerary={data.itinerary}
-              overview={data.overview}
-              picture={data.picture}
-              
-            />
-          
-          ))}
-        </div>
-      </section>
+    <div className="space-y-8 mt-10">
+      <h2 className="text-3xl font-semibold">Uttarakhand Package</h2>
+    </div>
+
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+      {tourData[0].places.map((data, index) => (
+        <CardDesign
+          key={index}
+          state={tourData[0].state}
+          title={data.name}
+          description={data.description}
+          img={data.image}
+          rating={data.rating}
+          days={data.totalDays}
+          highlights={data.highlights}
+          inclusions={data.inclusions}
+          exclusions={data.exclusions}
+          itinerary={data.itinerary}
+          overview={data.overview}
+          picture={data.picture}
+        />
+      ))}
+    </div>
+  </div>
+</section>
+
+
     </div>
   );
 };

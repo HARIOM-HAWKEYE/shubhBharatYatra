@@ -4,206 +4,243 @@ import { useLocation } from 'react-router-dom';
 
 const Itinerary = () => {
   const location = useLocation();
-  const { description, title, days, overview, highlights, inclusions, exclusions, itinerary,picture } = location.state;
- console.log(picture && picture[0]);
+  const { description, title, days, overview, highlights, inclusions, exclusions, itinerary, picture } = location.state;
   const [activeBox, setActiveBox] = useState('highlight');
   const [showToast, setShowToast] = useState(false);
 
-  // Show toast when form is submitted
   const handleSubmit = (e) => {
     e.preventDefault();
     setShowToast(true);
-    setTimeout(() => setShowToast(false), 3000); // Toast disappears after 3 seconds
+    setTimeout(() => setShowToast(false), 3000);
   };
 
   const toggleBox = (boxName) => {
-    if (activeBox === boxName) {
-      setActiveBox(null);
-    } else {
-      setActiveBox(boxName);
-    }
+    setActiveBox(boxName);
   };
-  console.log(picture);
 
   return (
-    <>
+    <div className="bg-gray-50 min-h-screen">
       {/* Toast Notification */}
       {showToast && (
-        <div className="fixed top-[120px] right-4 bg-blue-500 text-white p-4 rounded-lg shadow-lg">
+        <div className="fixed top-20 right-4 z-50 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg animate-fade-in-out">
           Form submitted successfully!
         </div>
       )}
 
       {/* Top Section */}
-      <div className="grid grid-cols-3 gap-2 p-4 pt-[110px] bg-black">
-        <div className="col-span-2 relative  h-96 rounded-lg shadow-lg flex items-center justify-center"  style={{ 
-      backgroundImage: `url(${picture && picture[0]})`,
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-       backgroundColor: picture && picture[0] ? 'transparent' : 'gray',
-    }}>
-          <div className="absolute bottom-4 left-4 bg-black bg-opacity-50 text-white p-3 rounded-lg">
-            <h2 className="text-lg font-bold">{days * 24} Hours in {title}:</h2>
-            <p className="text-sm">{description}</p>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+          {/* Main Image */}
+          <div className="lg:col-span-2 relative h-64 sm:h-80 md:h-96 rounded-xl overflow-hidden shadow-lg">
+            <div 
+              className="w-full h-full bg-cover bg-center"
+              style={{ 
+                backgroundImage: `url(${picture && picture[0]})`,
+                backgroundColor: picture && picture[0] ? 'transparent' : '#e5e7eb',
+              }}
+            >
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 sm:p-6">
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">{days * 24} Hours in {title}</h2>
+                <p className="text-white/90 text-sm sm:text-base mt-2 line-clamp-2">{description}</p>
+              </div>
+            </div>
           </div>
-        </div>
-        <div className="grid grid-rows-2 gap-2">
-          <div className=" h-48 rounded-lg shadow-md flex items-center justify-center" style={{ 
-      backgroundImage: `url(${picture && picture[1]})`,
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-       backgroundColor: picture && picture[1] ? 'transparent' : 'gray',
-    }}></div>
-          <div className="bg-gray-500 h-48 rounded-lg shadow-md flex items-center justify-center"style={{ 
-      backgroundImage: `url(${picture && picture[2]})`,
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-       backgroundColor: picture && picture[2] ? 'transparent' : 'gray',
-    }}></div>
+
+          {/* Side Images */}
+          <div className="grid grid-cols-2 gap-4 lg:grid-cols-1 lg:grid-rows-2">
+            <div 
+              className="h-32 sm:h-40 md:h-48 rounded-xl shadow-md bg-cover bg-center"
+              style={{ 
+                backgroundImage: `url(${picture && picture[1]})`,
+                backgroundColor: picture && picture[1] ? 'transparent' : '#e5e7eb',
+              }}
+            ></div>
+            <div 
+              className="h-32 sm:h-40 md:h-48 rounded-xl shadow-md bg-cover bg-center"
+              style={{ 
+                backgroundImage: `url(${picture && picture[2]})`,
+                backgroundColor: picture && picture[2] ? 'transparent' : '#e5e7eb',
+              }}
+            ></div>
+          </div>
         </div>
       </div>
 
       {/* Middle Section */}
-      <div className='ml-[135px] mt-[40px] mr-[20px] flex gap-[4%]'>
-        {/* Overview and Highlights/Inclusions/Exclusions */}
-        <div className='w-[63%] flex flex-col'>
-          {/* Overview box */}
-          <div className="w-full bg-white p-6 rounded-xl border border-[#FF9D23] shadow-lg mb-6">
-            <h2 className="text-2xl font-semibold text-gray-700 mb-4">Overview</h2>
-            <p className="text-gray-700">{overview}</p>
-          </div>
-
-          {/* Tabs for Highlights/Inclusions/Exclusions */}
-          <div>
-            <div className="flex space-x-4 mb-6">
-              <div
-                className={`${activeBox === 'highlight' ? 'bg-[#FF5722]' : 'bg-[#FF9D23]'} text-white py-2 px-6 rounded-l-xl text-xl font-semibold cursor-pointer shadow-lg transition-transform transform hover:scale-105`}
-                onClick={() => toggleBox('highlight')}
-              >
-                Highlights
-              </div>
-              <div
-                className={`${activeBox === 'inclusion' ? 'bg-[#FF5722]' : 'bg-[#FF9D23]'} text-white py-2 px-6 text-xl font-semibold cursor-pointer shadow-lg transition-transform transform hover:scale-105`}
-                onClick={() => toggleBox('inclusion')}
-              >
-                Inclusions
-              </div>
-              <div
-                className={`${activeBox === 'exclusion' ? 'bg-[#FF5722]' : 'bg-[#FF9D23]'} text-white py-2 px-6 rounded-r-xl text-xl font-semibold cursor-pointer shadow-lg transition-transform transform hover:scale-105`}
-                onClick={() => toggleBox('exclusion')}
-              >
-                Exclusions
-              </div>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <div className="flex flex-col lg:flex-row gap-6 xl:gap-8">
+          {/* Left Column - Overview and Tabs */}
+          <div className="w-full lg:w-2/3 xl:w-3/4">
+            {/* Overview Box */}
+            <div className="bg-white p-6 rounded-xl border border-orange-400 shadow-lg mb-6">
+              <h2 className="text-xl sm:text-2xl font-semibold text-gray-800 mb-4">Overview</h2>
+              <p className="text-gray-600 leading-relaxed">{overview}</p>
             </div>
 
-            {/* Content of active tab */}
-            <div className={`bg-white p-6 rounded-xl border border-[#FF9D23] shadow-lg ${activeBox ? 'mt-4' : ''}`}>
-              {activeBox === 'highlight' && (
-                <ul className="list-disc pl-5 text-gray-700 space-y-2">
-                  {highlights.map((data, index) => (<li key={index}>{data}</li>))}
-                </ul>
-              )}
-              {activeBox === 'inclusion' && (
-                <ul className="list-disc pl-5 text-gray-700 space-y-2">
-                  {inclusions.map((data, index) => (<li key={index}>{data}</li>))}
-                </ul>
-              )}
-              {activeBox === 'exclusion' && (
-                <ul className="list-disc pl-5 text-gray-700 space-y-2">
-                  {exclusions.map((data, index) => (<li key={index}>{data}</li>))}
-                </ul>
-              )}
-            </div>
-          </div>
-        </div>
+            {/* Tabs Section */}
+            <div className="bg-white rounded-xl border border-orange-400 shadow-lg overflow-hidden">
+              {/* Tab Buttons */}
+              <div className="flex flex-col sm:flex-row">
+                <button
+                  className={`flex-1 py-3 px-4 sm:px-6 font-semibold text-white transition-colors ${activeBox === 'highlight' ? 'bg-orange-600' : 'bg-orange-400 hover:bg-orange-500'}`}
+                  onClick={() => toggleBox('highlight')}
+                >
+                  Highlights
+                </button>
+                <button
+                  className={`flex-1 py-3 px-4 sm:px-6 font-semibold text-white transition-colors ${activeBox === 'inclusion' ? 'bg-orange-600' : 'bg-orange-400 hover:bg-orange-500'}`}
+                  onClick={() => toggleBox('inclusion')}
+                >
+                  Inclusions
+                </button>
+                <button
+                  className={`flex-1 py-3 px-4 sm:px-6 font-semibold text-white transition-colors ${activeBox === 'exclusion' ? 'bg-orange-600' : 'bg-orange-400 hover:bg-orange-500'}`}
+                  onClick={() => toggleBox('exclusion')}
+                >
+                  Exclusions
+                </button>
+              </div>
 
-        {/* Included in Package + Travel Form */}
-        <div className="w-[32%] flex flex-col gap-6">
-          {/* Call Us / Included box */}
-          <div className="bg-white p-6 rounded-xl border border-[#FF9D23] shadow-lg">
-            <div className="flex items-center">
-              <FaPhoneAlt className="text-[#FF5722] mr-2" />
-              <h3 className="text-xl font-semibold text-gray-700">Call Us:</h3>
-              <span className="text-lg font-medium ml-4">+91 8766224544</span>
-            </div>
-
-            <div className="font-semibold text-lg text-gray-500 mt-6">Included in this Package</div>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-4">
-              <div className="text-center">
-                <FaHotel className="text-[#FF5722] text-3xl mx-auto mb-2" />
-                <p className="font-semibold flex items-center gap-1 justify-center">Upto 3 <FaStar /></p>
-              </div>
-              <div className="text-center">
-                <FaUtensils className="text-[#FF5722] text-3xl mx-auto mb-2" />
-                <p className="font-semibold">Meals</p>
-              </div>
-              <div className="text-center">
-                <FaBus className="text-[#FF5722] text-3xl mx-auto mb-2" />
-                <p className="font-semibold">Transport</p>
-              </div>
-              <div className="text-center">
-                <FaPhoneAlt className="text-[#FF5722] text-3xl mx-auto mb-2" />
-                <p className="font-semibold">Support</p>
+              {/* Tab Content */}
+              <div className="p-6">
+                {activeBox === 'highlight' && (
+                  <ul className="space-y-3">
+                    {highlights.map((item, index) => (
+                      <li key={index} className="flex items-start">
+                        <span className="inline-block w-1.5 h-1.5 bg-orange-500 rounded-full mt-2 mr-2"></span>
+                        <span className="text-gray-700">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+                {activeBox === 'inclusion' && (
+                  <ul className="space-y-3">
+                    {inclusions.map((item, index) => (
+                      <li key={index} className="flex items-start">
+                        <span className="inline-block w-1.5 h-1.5 bg-orange-500 rounded-full mt-2 mr-2"></span>
+                        <span className="text-gray-700">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+                {activeBox === 'exclusion' && (
+                  <ul className="space-y-3">
+                    {exclusions.map((item, index) => (
+                      <li key={index} className="flex items-start">
+                        <span className="inline-block w-1.5 h-1.5 bg-orange-500 rounded-full mt-2 mr-2"></span>
+                        <span className="text-gray-700">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </div>
             </div>
           </div>
 
-          {/* Travel Form */}
-          <div className="bg-white p-6 rounded-xl border border-[#FF9D23] shadow-lg">
-            <h2 className="text-2xl font-semibold mb-4">Travel Form</h2>
-            <form onSubmit={handleSubmit}>
-              <div className="mb-4">
-                <label className="block text-gray-700 font-medium mb-2">Full Name</label>
-                <input
-                  type="text"
-                  name="name"
-                  className="w-full p-2 border rounded-lg"
-                  placeholder="Your Name"
-                />
+          {/* Right Column - Package Info and Form */}
+          <div className="w-full lg:w-1/3 xl:w-1/4 space-y-6">
+            {/* Package Info Box */}
+            <div className="bg-white p-6 rounded-xl border border-orange-400 shadow-lg">
+              <div className="flex items-center mb-4">
+                <FaPhoneAlt className="text-orange-500 mr-2" />
+                <h3 className="text-lg font-semibold text-gray-800">Call Us:</h3>
+                <span className="text-gray-700 ml-2">+91 8766224544</span>
               </div>
-              <div className="mb-4">
-                <label className="block text-gray-700 font-medium mb-2">Email Address</label>
-                <input
-                  type="email"
-                  name="email"
-                  className="w-full p-2 border rounded-lg"
-                  placeholder="Your Email"
-                />
+
+              <h4 className="font-semibold text-gray-600 mb-4">Included in this Package</h4>
+              <div className="grid grid-cols-4 gap-4">
+                <div className="text-center">
+                  <div className="bg-orange-100 p-3 rounded-full w-14 h-14 flex items-center justify-center mx-auto mb-2">
+                    <FaHotel className="text-orange-500 text-xl" />
+                  </div>
+                  <p className="font-medium text-sm flex items-center justify-center gap-1">
+                    Upto 3 <FaStar className="text-yellow-400" />
+                  </p>
+                </div>
+                <div className="text-center">
+                  <div className="bg-orange-100 p-3 rounded-full w-14 h-14 flex items-center justify-center mx-auto mb-2">
+                    <FaUtensils className="text-orange-500 text-xl" />
+                  </div>
+                  <p className="font-medium text-sm">Meals</p>
+                </div>
+                <div className="text-center">
+                  <div className="bg-orange-100 p-3 rounded-full w-14 h-14 flex items-center justify-center mx-auto mb-2">
+                    <FaBus className="text-orange-500 text-xl" />
+                  </div>
+                  <p className="font-medium text-sm">Transport</p>
+                </div>
+                <div className="text-center">
+                  <div className="bg-orange-100 p-3 rounded-full w-14 h-14 flex items-center justify-center mx-auto mb-2">
+                    <FaPhoneAlt className="text-orange-500 text-xl" />
+                  </div>
+                  <p className="font-medium text-sm">Support</p>
+                </div>
               </div>
-              <div className="mb-4">
-                <label className="block text-gray-700 font-medium mb-2">Destination</label>
-                <input
-                  type="text"
-                  name="destination"
-                  className="w-full p-2 border rounded-lg"
-                  placeholder="Your Destination"
-                />
-              </div>
-              <button
-                type="submit"
-                className={`w-full py-2 rounded-lg transition bg-blue-500 hover:bg-blue-600 text-white`}
-              >
-                Submit
-              </button>
-            </form>
+            </div>
+
+            {/* Travel Form */}
+            <div className="bg-white p-6 rounded-xl border border-orange-400 shadow-lg">
+              <h2 className="text-xl font-semibold text-gray-800 mb-4">Travel Form</h2>
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div>
+                  <label className="block text-gray-700 text-sm font-medium mb-1">Full Name</label>
+                  <input
+                    type="text"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-400 focus:border-orange-400"
+                    placeholder="Your Name"
+                    required
+                  />
+                </div>
+                <div>
+                  <label className="block text-gray-700 text-sm font-medium mb-1">Email Address</label>
+                  <input
+                    type="email"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-400 focus:border-orange-400"
+                    placeholder="Your Email"
+                    required
+                  />
+                </div>
+                <div>
+                  <label className="block text-gray-700 text-sm font-medium mb-1">Destination</label>
+                  <input
+                    type="text"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-400 focus:border-orange-400"
+                    placeholder="Your Destination"
+                    required
+                  />
+                </div>
+                <button
+                  type="submit"
+                  className="w-full bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+                >
+                  Submit
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Itinerary Day-wise Section */}
-      <div className="min-h-screen ml-[111px] mt-[30px] p-6">
-        <div className="w-2/3">
+      {/* Itinerary Section */}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-8">Day-wise Itinerary</h2>
+        
+        <div className="space-y-6 w-full lg:w-2/3">
           {itinerary.map((day, index) => (
-            <div key={index} className="bg-white p-6 rounded-2xl border-b-3 border-l-3 border-[#E82561] mb-10 shadow-lg">
-              <h2 className="text-2xl font-semibold mb-2">
-                <span className="bg-[#FF9D23] px-3 pt-10 pb-2">Day: {day.day}</span> {day.title}
-              </h2>
-              <p className="text-gray-700">{day.activities}</p>
+            <div 
+              key={index} 
+              className="bg-white p-6 rounded-xl shadow-lg border-l-4 border-orange-500 relative overflow-hidden"
+            >
+              <div className="absolute top-0 left-0 bg-orange-500 text-white px-4 py-1 text-sm font-bold">
+                Day {day.day}
+              </div>
+              <h3 className="text-xl font-semibold text-gray-800 mt-6 mb-3">{day.title}</h3>
+              <p className="text-gray-600 leading-relaxed">{day.activities}</p>
             </div>
           ))}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

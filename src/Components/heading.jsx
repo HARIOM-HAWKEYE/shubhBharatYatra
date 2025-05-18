@@ -1,15 +1,18 @@
-export function Heading({biggerHeading,smallerHeading,children}){
- 
-    return <div className="locationHeading w-[80%] mx-auto  my-20">
-    <p className="text-[25px] text-[grey] pl-[6px] ">{smallerHeading}</p>
-    <div id="incredibleContainer" className="flex justify-between gap-2">
-       <span className="text-[70px] font-semi bold" >{biggerHeading}</span>
-       <span className="text-[20px] pt-[50px]">{children}</span>
+export function Heading({ biggerHeading, smallerHeading, children }) {
+  return (
+    <div className="locationHeading w-[80%] max-w-[1200px] mx-auto my-20 px-4 sm:px-6 lg:px-0">
+      <p className="text-lg sm:text-xl text-gray-500 pl-1">{smallerHeading}</p>
+      <div
+        id="incredibleContainer"
+        className="flex flex-col sm:flex-row justify-between gap-4 sm:gap-2"
+      >
+        <span className="lg:text-[72px] sm:text-5xl md:text-6xl font-semibold">
+          {biggerHeading}
+        </span>
+        <span className="hidden sm:block text-base sm:text-lg md:text-xl lg:text-lg pt-4 sm:pt-0 max-w-sm sm:max-w-md">
+          {children}
+        </span>
+      </div>
     </div>
-  </div>
-
-
-
-
-
+  );
 }

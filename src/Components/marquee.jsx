@@ -18,7 +18,7 @@ const Marquee = () => {
   ];
 
   return (
-    <div className="overflow-hidden whitespace-nowrap border absolute bottom-10 z-10 bg-black w-[80%] rounded-[50px] max-w-[1200px] left-1/2 transform -translate-x-1/2">
+    <div className="overflow-hidden whitespace-nowrap border absolute sm:bottom-[100px] md:bottom-[100px] lg:bottom-[40px] z-10 bg-black w-[80%] rounded-[50px] max-w-[1200px] left-1/2 transform -translate-x-1/2">
       <div className="flex animate-marquee">
         {items.concat(items).map((item, index) => (
           <span key={index} className="flex items-center text-white px-4 py-2 rounded-full space-x-2">
