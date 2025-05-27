@@ -30,7 +30,7 @@ const HomePage = () => {
 
   return (
     <>
-      <div className="relative w-full h-[90vh] flex justify-center items-center overflow-hidden">
+      <div className="relative w-full h-[84vh] flex justify-center items-center overflow-hidden">
         {/* Show video for tablet/desktop, image for mobile */}
         {!isMobile ? (
           <video

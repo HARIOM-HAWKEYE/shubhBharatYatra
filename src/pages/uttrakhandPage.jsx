@@ -22,7 +22,7 @@ const UttrakhandPage = () => {
     <div className="space-y-8">
       <h2 className="text-3xl font-semibold">About Uttarakhand</h2>
       <p className="text-lg text-gray-300">
-        Uttarakhand is a state in northern India...
+       Uttarakhand, often referred to as "Devbhumi" (Land of the Gods), is a paradise for nature lovers, adventure seekers, and spiritual travelers. Nestled in the lap of the Himalayas, this northern Indian state is renowned for its pristine landscapes, sacred pilgrimage sites, thrilling trekking trails, and serene hill stations. Whether you're seeking spiritual solace, adrenaline-pumping adventures, or tranquil retreats, Uttarakhand offers an unforgettable experience.
       </p>
     </div>
 

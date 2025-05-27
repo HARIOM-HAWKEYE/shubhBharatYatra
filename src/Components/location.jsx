@@ -13,7 +13,7 @@ export function BestLocation() {
       region: "Kerala",
       colSpan: "md:col-span-2",
       rowSpan: "md:row-span-2",
-      height: "h-64 md:h-[500px]"
+      height: "h-full" // Will be controlled by parent
     },
     {
       image: rajasthan,
@@ -21,7 +21,7 @@ export function BestLocation() {
       region: "Rajasthan",
       colSpan: "",
       rowSpan: "",
-      height: "h-64"
+      height: "h-full" // Will be controlled by parent
     },
     {
       image: ladakh,
@@ -29,7 +29,7 @@ export function BestLocation() {
       region: "Ladakh",
       colSpan: "",
       rowSpan: "",
-      height: "h-64"
+      height: "h-full" // Will be controlled by parent
     },
     {
       image: goa,
@@ -37,7 +37,7 @@ export function BestLocation() {
       region: "Goa",
       colSpan: "",
       rowSpan: "",
-      height: "h-64"
+      height: "h-full" // Will be controlled by parent
     },
     {
       image: uttrakhand,
@@ -45,15 +45,13 @@ export function BestLocation() {
       region: "Uttrakhand",
       colSpan: "md:col-span-2",
       rowSpan: "",
-      height: "h-64"
+      height: "h-full" // Will be controlled by parent
     }
   ];
 
   return (
-    <section className="w-full px-8  max-w-6xl mx-auto">
-     
-      
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  gap-4">
+    <section className="w-full px-8 max-w-6xl mx-auto h-[80vh] min-h-[600px]">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 h-full">
         {locations.map((location, index) => (
           <div
             key={index}
